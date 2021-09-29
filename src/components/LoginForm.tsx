@@ -2,19 +2,20 @@ import React, { useState } from 'react';
 import { Button, Form, Input } from 'antd';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { rules } from '../utils/rules';
-import { useDispatch } from 'react-redux';
-import { AuthActionCreators } from '../store/reducers/auth/action-creators';
+import { useActions } from '../hooks/useActions';
 
 export const LoginForm = () => {
   const { error, isLoading } = useTypedSelector(state => state.auth)
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
+  const { login } = useActions()
 
 
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
   const onSubmit = () => {
-    dispatch(AuthActionCreators.login(username, password))
+    // dispatch(AuthActionCreators.login(username, password))
+    login(username, password);
   }
 
   return (
@@ -43,6 +44,7 @@ export const LoginForm = () => {
         rules={[rules('Please input your password!')]}
       >
         <Input
+          type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />

@@ -1,14 +1,15 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router'
+import { useTypedSelector } from '../hooks/useTypedSelector';
 import { privateRoutes, publicRoutes, RouteNames } from '../router';
 
 export const AppRouter = () => {
-  const auth = true;
+  const { isAuth } = useTypedSelector(state => state.auth)
 
   return (
-    auth
+    isAuth
       ?
-        <Switch>e
+        <Switch>
           { privateRoutes.map(route =>
             <Route
               key={route.path}

@@ -18,7 +18,7 @@ export const AppRouter = () => {
               component={route.component}
             />
           )}
-          <Redirect to={RouteNames.LOGIN} />
+          <Redirect to={RouteNames.EVENT} />
 
         </Switch>
       :
@@ -31,7 +31,7 @@ export const AppRouter = () => {
               component={route.component}
             />
           )}
-           <Redirect to={RouteNames.EVENT} />
+           <Redirect to={RouteNames.LOGIN} />
         </Switch>
   )
 }

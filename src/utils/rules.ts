@@ -1,3 +1,14 @@
+import moment, { Moment } from 'moment';
 
 
-export const rules = (message: string) => ({ required: true, message })
+export const rules = {
+  required: (message: string = "Обьязательное поле") => ({ required: true, message }),
+  isDateAfter: (message: string) => () => ({
+    validator(_: any, value: Moment) {
+      if(value.isSameOrAfter(moment())) {
+        return Promise.resolve()
+      }
+      return Promise.reject(new Error(message))
+    }
+  })
+}

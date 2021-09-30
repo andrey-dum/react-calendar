@@ -31,7 +31,7 @@ export const LoginForm = () => {
       <Form.Item
         label="Username"
         name="username"
-        rules={[rules('Please input your username!')]}
+        rules={[rules.required('Please input your username!')]}
       >
         <Input
           value={username}
@@ -41,7 +41,7 @@ export const LoginForm = () => {
       <Form.Item
         label="Password"
         name="password"
-        rules={[rules('Please input your password!')]}
+        rules={[rules.required('Please input your password!')]}
       >
         <Input
           type="password"

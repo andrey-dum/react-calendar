@@ -26,8 +26,9 @@ export const AuthActionCreators = {
         if (user) {
           localStorage.setItem('isAuth', 'true')
           localStorage.setItem('user', user.username)
-          dispatch(AuthActionCreators.setIsAuth(true))
+
           dispatch(AuthActionCreators.setUser(user))
+          dispatch(AuthActionCreators.setIsAuth(true))
         } else {
           dispatch(AuthActionCreators.setError('User not found'));
 
